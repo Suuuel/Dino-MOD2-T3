@@ -11,7 +11,6 @@ Y_POS = 310
 Y_POS_DUCK = 340
 JUMP_VEL = 8.5
 
-
 class Dinosaur(Sprite):
     def __init__(self):
         self.type = DEFAULT_TYPE
@@ -23,6 +22,7 @@ class Dinosaur(Sprite):
         self.dino_run = True
         self.dino_jump = False
         self.dino_duck = False 
+        self.has_power_up = False
         self.jump_vel = JUMP_VEL
         self.setup_state()
 
@@ -68,9 +68,9 @@ class Dinosaur(Sprite):
     def jump(self): 
         self.image = JUMP_IMG[self.type]
         if self.dino_jump:
-            self.dino_rect.y -= self.jump * 4
+            self.dino_rect.y -= self.jump_vel * 4
             self.jump_vel -= 0.8
-        if self.jump_vel < - JUMP_VEL:
+        if self.jump_vel < - JUMP_VEL:  
             self.dino_rect_y = Y_POS
             self.dino_jump = False
             self.jump_vel = JUMP_VEL
@@ -79,7 +79,7 @@ class Dinosaur(Sprite):
         self.image = DUCK_IMG[self.type][self.step_idex // 5]
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = X_POS
-        self.dino_rect_y = Y_POS
+        self.dino_rect.y = Y_POS
         self.step_idex += 1
         self.dino_duck = False
 

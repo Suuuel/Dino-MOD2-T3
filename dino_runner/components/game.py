@@ -7,8 +7,6 @@ from dino_runner.utils.text_utils import draw_message_component
 from dino_runner.components.powerups.power_up_manager import PowerUpManager
 
 
-
-
 class Game:
     def __init__(self):
         pygame.init()
@@ -96,7 +94,7 @@ class Game:
         )
 
     def draw_power_up_time(self):
-        if Game.player.has_power_up:
+        if self.player.has_power_up == True:
             time_to_show = round((self.player.power_up_time - pygame.time.get_ticks()) / 1000, 2)
             if time_to_show >= 0:
                 draw_message_component(
