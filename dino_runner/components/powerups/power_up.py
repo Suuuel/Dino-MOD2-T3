@@ -14,13 +14,14 @@ class PowerUp(Sprite):
         self.duration = random.randint(5, 10)
     
     def update(self, game_speed, power_ups):
-        self.rect.x -= game_speed
+        self.rect.x -= game_speed / 2
         
         if self.rect.x < -self.rect.width:
             power_ups.pop()
     
     def draw(self, screen):
         screen.blit(self.image, self.rect)
+        
         
              
 

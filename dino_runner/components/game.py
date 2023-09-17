@@ -1,7 +1,8 @@
 import pygame 
 
 from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE
-from dino_runner.components.powerups.dinosaur import Dinosaur
+from dino_runner.components.dinosaur import Dinosaur
+from dino_runner.components.sound import Music
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.utils.text_utils import draw_message_component
 from dino_runner.components.powerups.power_up_manager import PowerUpManager
@@ -95,7 +96,7 @@ class Game:
 
     def draw_power_up_time(self):
         if self.player.has_power_up == True:
-            time_to_show = round((self.player.power_up_time - pygame.time.get_ticks()) / 1000, 2)
+            time_to_show = round((self.player.power_up_timing - pygame.time.get_ticks()) / 1000, 2)
             if time_to_show >= 0:
                 draw_message_component(
                     f"{self.player.type.capitalize()} disponivel por {time_to_show} segundos", 
@@ -122,6 +123,8 @@ class Game:
         self.screen.fill((255, 255, 255))
         half_screen_height = SCREEN_HEIGHT // 2 
         half_screen_width = SCREEN_WIDTH // 2 
+        Music.stop_music(self)
+        Music.play_music(self)
         if self.death_count == 0:
             draw_message_component("Pressione qualquer tecla para iniciar", self.screen)
 

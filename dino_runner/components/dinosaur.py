@@ -1,6 +1,7 @@
 import pygame
 from pygame.sprite import  Sprite
 from dino_runner.utils.constants import RUNNING, JUMPING, DUCKING, DEFAULT_TYPE, SHIELD_TYPE, DUCKING_SHIELD, JUMPING_SHIELD, RUNNING_SHIELD
+from dino_runner.components.sound import Music
 
 DUCK_IMG = { DEFAULT_TYPE: DUCKING, SHIELD_TYPE: DUCKING_SHIELD}
 JUMP_IMG = { DEFAULT_TYPE: JUMPING, SHIELD_TYPE: JUMPING_SHIELD}
@@ -22,12 +23,11 @@ class Dinosaur(Sprite):
         self.dino_run = True
         self.dino_jump = False
         self.dino_duck = False 
-        self.has_power_up = False
         self.jump_vel = JUMP_VEL
         self.setup_state()
 
     def setup_state(self):
-        self.hs_power_up = False
+        self.has_power_up = False
         self.shield = False
         self.show_text = False
         self.shield_time_up = 0
@@ -41,6 +41,7 @@ class Dinosaur(Sprite):
             self.duck()
         
         if user_input[pygame.K_UP] and not self.dino_jump:
+            Music.music_Jump(self)
             self.dino_run = False
             self.dino_jump = True
             self.dino_duck = False
@@ -79,7 +80,7 @@ class Dinosaur(Sprite):
         self.image = DUCK_IMG[self.type][self.step_idex // 5]
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = X_POS
-        self.dino_rect.y = Y_POS
+        self.dino_rect.y = Y_POS + 30 
         self.step_idex += 1
         self.dino_duck = False
 

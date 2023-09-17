@@ -71,3 +71,12 @@ HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 
 DEFAULT_TYPE = "default"
 SHIELD_TYPE = "shield"
+HAMMER_TYPE = "hammer"
+
+SOUND =  [
+    os.path.join(IMG_DIR,"Music/music_game1.mp3"),
+    os.path.join(IMG_DIR,"Music/music_game2.mp3"),
+]
+
+DEATH_SOUND = os.path.join(IMG_DIR, "Sounds/dino_death.mp3")
+JUMP_SOUND = os.path.join(IMG_DIR, "Sounds/dino_jump.mp3")
