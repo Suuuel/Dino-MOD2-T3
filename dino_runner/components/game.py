@@ -1,6 +1,6 @@
 import pygame 
 
-from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE
+from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, FUNDO_TELA
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.sound import Music
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
@@ -21,7 +21,7 @@ class Game:
         self.death_count = 0 
         self.game_speed = 20
         self.x_pos_bg = 0
-        self.y_pos_bg = 380
+        self.y_pos_bg = 500
         self.player = Dinosaur()
         self.obstacle_manager = ObstacleManager()
         self.power_up_manager = PowerUpManager()
@@ -67,7 +67,7 @@ class Game:
     
     def draw(self):
         self.clock.tick(FPS)
-        self.screen.fill((255, 255, 255))
+        self.screen.blit(FUNDO_TELA, (0, 0))
         self.draw_background()
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
@@ -84,7 +84,7 @@ class Game:
         if self.x_pos_bg <= - image_width:
             self.screen.blit(BG, (image_width + self.x_pos_bg, self.y_pos_bg))
             self.x_pos_bg = 0
-            self.x_pos_bg -= self.game_speed
+        self.x_pos_bg -= self.game_speed
 
     def draw_score(self):
         draw_message_component(
@@ -120,11 +120,12 @@ class Game:
 
 
     def show_menu(self):
-        self.screen.fill((255, 255, 255))
+        self.screen.blit(FUNDO_TELA, (0, 0))
         half_screen_height = SCREEN_HEIGHT // 2 
         half_screen_width = SCREEN_WIDTH // 2 
         Music.stop_music(self)
         Music.play_music(self)
+        
         if self.death_count == 0:
             draw_message_component("Pressione qualquer tecla para iniciar", self.screen)
 

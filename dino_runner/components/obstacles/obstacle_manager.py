@@ -21,9 +21,9 @@ class ObstacleManager:
             obstacle.update(game.game_speed, self.obstacles)
 
             if game.player.dino_rect.colliderect(obstacle.rect):
-                Music.musi_death(self)
-    
+                
                 if not game.player.has_power_up:
+                    Music.musi_death(self)
                     pygame.time.delay(500)
                     game.playing = False
                     game.death_count += 1

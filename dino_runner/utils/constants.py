@@ -62,7 +62,7 @@ BIRD = [
 ]
 
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
-SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
+SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/egg.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
 
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
@@ -80,3 +80,5 @@ SOUND =  [
 
 DEATH_SOUND = os.path.join(IMG_DIR, "Sounds/dino_death.mp3")
 JUMP_SOUND = os.path.join(IMG_DIR, "Sounds/dino_jump.mp3")
+
+FUNDO_TELA = pygame.image.load(os.path.join(IMG_DIR, "Other/Fundo.jpg"))
