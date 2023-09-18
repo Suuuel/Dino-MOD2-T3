@@ -22,7 +22,7 @@ class Music:
         jump = pygame.mixer.Sound(JUMP_SOUND)
         jump.play()
 
-    def musi_death(self):
+    def music_death():
         death = pygame.mixer.Sound(DEATH_SOUND)
         death.play()
         
