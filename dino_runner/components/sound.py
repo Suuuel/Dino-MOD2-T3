@@ -1,7 +1,7 @@
 import random
 import pygame
 
-from dino_runner.utils.constants import SOUND, JUMP_SOUND, DEATH_SOUND
+from dino_runner.utils.constants import SOUND, JUMP_SOUND, DEATH_SOUND, EGGS_DINO
 
 class Music:
     def __init__(self):
@@ -18,14 +18,18 @@ class Music:
         self.sons.set_volume(volume)
         self.sons.play()
 
-    def music_Jump(self):
+    def music_Jump():
         jump = pygame.mixer.Sound(JUMP_SOUND)
         jump.play()
 
     def music_death():
         death = pygame.mixer.Sound(DEATH_SOUND)
         death.play()
+    
+    def music_power_up():
+        eggs = pygame.mixer.Sound(EGGS_DINO)
+        eggs.play()
         
-    def stop_music(self):
+    def stop_music():
         pygame.mixer.music.stop()
       

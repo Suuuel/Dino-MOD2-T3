@@ -18,7 +18,7 @@ class Game:
         self.playing = False
         self.running = False
         self.score = 0
-        self.death_count = 0 
+        self.death_count = 0
         self.game_speed = 20
         self.x_pos_bg = 0
         self.y_pos_bg = 500
@@ -123,7 +123,7 @@ class Game:
         self.screen.blit(FUNDO_TELA, (0, 0))
         half_screen_height = SCREEN_HEIGHT // 2 
         half_screen_width = SCREEN_WIDTH // 2 
-        Music.stop_music(self)
+        Music.stop_music()
         Music.play_music(self)
         
         if self.death_count == 0:

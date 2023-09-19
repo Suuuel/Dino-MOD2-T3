@@ -78,7 +78,9 @@ SOUND =  [
     os.path.join(IMG_DIR,"Music/music_game2.mp3"),
 ]
 
+EGGS_DINO = os.path.join(IMG_DIR, "Sounds/dino_eggs.mp3")
 DEATH_SOUND = os.path.join(IMG_DIR, "Sounds/dino_death.mp3")
 JUMP_SOUND = os.path.join(IMG_DIR, "Sounds/dino_jump.mp3")
+
 
 FUNDO_TELA = pygame.image.load(os.path.join(IMG_DIR, "Other/Fundo.jpg"))
